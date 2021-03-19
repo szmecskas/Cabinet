@@ -1,0 +1,101 @@
+<DOCTYPE html>
+<html>
+    <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
+       <title>Moga Dental Clinic</title>
+     
+       <meta http-equiv="X-UA-Compatible" content="ie-edge">
+       
+       <link rel="stylesheet" type="text/css" media="screen" href="./style.css">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+        
+        <script type="text/javascript" src="./index.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    
+    </head>
+    
+    <body>
+       <header>
+            <div class="meniu">
+                <div id="logo">
+                    <h1><span id="efect">MOGA</span> Dental Clinic</h1>
+                </div>
+                <div class="optiuni">
+                    <ul>
+                        <a href=./index.html><li>Acasa</li></a>
+                        <a href=./manopere.html><li>Manopere</li></a>
+                        <a href=./contact.html><li>Contact</li></a>
+                        <a href=./login.html><li>Login</li></a>
+                    </ul>
+                </div>
+                <img src="./Image/tooth_gif.gif" style="width: 7%;"> 
+            </div>
+        </header>
+        
+
+      <h1 style="font-size:35px; margin-top:10px; padding-left:50px; text-shadow: 2px 2px; color: black;">Cabinet Stomatologic Socodor – Moga Dental Clinic</h1>
+       
+        
+      <div id="orar" style="width: 23%; height:30%">
+        <h1>    <p class="orar1" style="text-shadow: 1px 1px;;text-align: center; color:white; font-size: 40px;">ORAR</p>
+                <p class="white" style="border-radius: 5px;text-shadow: 1px 1px;font-size: 30px; background-color:#d1d1d1; text-align: center;">Luni-Vineri: 09:00-18:30</p></h1>
+      </div>
+      
+      <br>
+      <br>
+      <h2 style="font-size:20px; text-shadow: 1px 1px; text-align: center; margin-top:10px; color: darkblue;">Cabinetul stomatologic  vă oferă servicii  de cea mai înalta calitate la prețuri accesibile, tratamente dentare personalizate, fără durere,  realizate de medici dentiști specializați în implantologie, ortodonție, chirurgie maxilo-facială, protetică, endodonție, estetică dentară.</h2>
+      <h3 style="font-size:20px; text-shadow: 1px 1px;text-align: center; margin-top:10px; color: darkblue;">Pentru că ne pasă ca dumneavoastră să beneficiați de cele mai bune tratamente, tehnologia și aparatura de care dispunem  în acest cabinet stomatologic este de ultimă generație.</h3>
+      
+      
+      <div class="text_login" style="position: absolute; padding-left:70px; font-size:20px; text-shadow: 1px 1px;margin-top:10px; color: deeppink;">
+          <pre>
+                Pentru o programare,
+                trebuie sa te loghezi!
+          </pre>
+      </div> 
+        
+        
+      <div class="container" style="width:26%; height: 30%">
+          <br>
+           <pre>
+            <input type="email" placeholder="Email" id="email" class="inputbox"  style="width:50%; height: 15%; color:white;">
+            <input type="password" placeholder="Password" id="password" class="inputbox"  style="width:50%; height: 15%; color:white;"> 
+            <button onclick="signIn()" id="signIn"  style="border-radius: 25px;width:50%; height: 15%; background-color: deeppink;">Sign In</button>
+            <button onclick="signUp()" id="signUp"  style="border-radius: 25px;width:50%; height: 15%; background-color: deepskyblue;">Sign Up</button>  
+            </pre>
+       </div>
+          
+       
+       <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if(user) {
+                    window.location="programare.html";
+        }
+         });       
+    </script>
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+    </body>
+
+</html>  
+</DOCTYPE>
+

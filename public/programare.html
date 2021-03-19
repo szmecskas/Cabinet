@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+   <html lang="en">
+    <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
+       <title>Moga Dental Clinic</title>
+       <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <!--   <link rel="stylesheet" type="text/css" media="screen" href="./programare.css"> -->
+      <link rel="stylesheet" type="text/css" media="screen" href="./style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+       
+        
+    </head>
+    
+    <body onload="readProgramare()" style="font-family: sans-serif; line-height: 1.5; padding: 0; margin:0; background-color: white;">
+      <header>
+            <div class="meniu">
+                <div id="logo">
+                    <h1><span id="efect">MOGA</span> Dental Clinic</h1>
+                </div>
+                <div class="optiuni">
+                    <ul>
+                        <a href=./index.html><li>Acasa</li></a>
+                        <a href=./manopere.html><li>Manopere</li></a>
+                        <a href=./contact.html><li>Contact</li></a>
+                        <a href=./login.html><li>Login</li></a>
+                    </ul>
+                </div>
+                <img src="./Image/tooth_gif.gif" style="width: 7%;"> 
+            </div>
+        </header>
+       
+      <div class="log_out" style="position: absolute; left: 1470px; background-color: red;">
+          <button onclick="logout()">LogOut</button>
+      </div>
+        
+        
+    <div class="row" style="position: absolute; padding-top: 20px; padding-left: 300px;">
+     <div class="col s12 m6" id="firstSection">    
+      <div class="programare">
+       <div class="programare-content">
+        <form id="form">
+           <input id="nume" type="text" placeholder="Nume">
+           <input id="telefon" type="text" placeholder="Telefon"> 
+           <input id="data" type="date" size="30">
+           <input id="ora" type="text" placeholder="Ora"><br>
+           <textarea placeholder="Mesaj(opțional)" cols="46" rows="5" id="mesaj"></textarea>
+            <br>
+            <br>
+           <button type="submit" class="#00c853 green accent-4 btn" id="button1"><i class="fas fa-plus"></i> Adaugă programare</button>
+           </form>
+          </div>
+
+         </div>
+        </div>
+              
+       <div class="col s12 m6" id="programareSection"></div>
+    </div>
+
+
+    <script type="text/javascript" src="./programare.js"></script>   
+    <script>
+          var firebaseConfig = {
+            apiKey: "AIzaSyDVevaJb6Uzysx0X6DGmc5PN3bpI6q-SHs",
+            authDomain: "moga-dental-clinic.firebaseapp.com",
+            databaseURL: "https://moga-dental-clinic.firebaseio.com",
+            projectId: "moga-dental-clinic",
+            storageBucket: "moga-dental-clinic.appspot.com",
+            messagingSenderId: "337039284793",
+            appId: "1:337039284793:web:25a6d55994e6d14add0be8",
+            measurementId: "G-WK0SKHVNV2"
+            };
+
+            // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        </script> 
+           
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
+        
+    </body>
+</html>

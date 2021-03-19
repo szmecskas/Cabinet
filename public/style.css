@@ -1,0 +1,108 @@
+body{
+    font-family: sans-serif;
+    font-size:25px;
+    line-height: 1.5;
+    padding: 0;
+    margin:0;
+    background-color: white;
+    background-image: url("./Image/cata.png");
+}
+
+header{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom:blue solid 3px;
+    background-color: midnightblue;
+}
+
+.meniu {
+    background-color: midnightblue;
+    
+    margin: auto;
+    overflow: hidden;
+    color: chartreuse;
+}
+
+#logo {
+    font-family: 'Sansita Swashed', cursive;
+    float: left;
+    color:ghostwhite;
+    padding-left: 2.5%;
+}
+
+#efect {
+    color:skyblue;
+}
+
+.optiuni {
+    padding-top: 18px;
+    float: right;
+    color: green;
+    padding-right: 6%;
+    text-decoration: none;
+    background-color: midnightblue;
+}
+
+.optiuni ul li{
+    text-shadow: 1px 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline;
+    color: whitesmoke;
+    border-bottom: white ridge 1.5px;
+    border-top: white ridge 1.5px;
+    border-left: white ridge 1.5px;
+    border-right: white ridge 1.5px;
+}
+
+
+a {
+    color: skyblue;
+    text-decoration: none;
+}
+
+a:hover {
+  color: deeppink;
+  font-weight: hold;  
+}
+
+
+#predescriere{
+    padding-left: 40px;
+    position: inherit;
+    font-size: 23px;
+    font-family: 'Sansita Swashed', cursive;
+}
+
+#orar{
+    background-color: darkblue;
+    position: absolute;
+    top: 66%;
+    left:65%;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: deeppink;
+}
+
+
+#white{
+    background-color: deeppink;
+}
+
+.red {
+    color: azure;
+}
+
+
+.container {
+    align-content: center;
+    background-color: darkblue;
+    position: absolute;
+    top: 66%;
+    left:10%;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: deeppink;
+}
+
+

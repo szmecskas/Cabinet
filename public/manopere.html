@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
+       <title>Moga Dental Clinic</title>
+<!--       <link rel="stylesheet" type="text/css" media="screen" href="./style.css">-->
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+        
+    
+</head>
+
+<body>
+ 
+  <main>
+    <header>
+            <div class="meniu">
+                <div id="logo">
+                    <h1><span id="efect">MOGA</span> Dental Clinic</h1>
+                </div>
+                <div class="optiuni">
+                    <ul style="text-shadow: 1px 0px;">
+                        <a href=./index.html><li>Acasa</li></a>
+                        <a href=./manopere.html><li>Manopere</li></a>
+                        <a href=./contact.html><li>Contact</li></a>
+                        <a href=./login.html><li>Login</li></a>
+                    </ul>
+                </div>
+                <img src="./Image/tooth_gif.gif" style="width: 7%;">
+            </div>
+        </header>
+        
+    <div class="log_out" style="position: absolute; left: 1470px; background-color: red;">
+      <button onclick="logout()">LogOut</button>
+    </div>
+     <div class="signin" style="position: absolute; left: 1408px; background-color: red;">
+          <button onclick="signin()">Sign In</button>
+      </div>
+      
+    <div class="container text-center" position="absolute" style="padding-top: 50px;">
+      <div class="d-flex justify-content-center" id="container" style="display: none!important;">
+        <form class="w-50">
+          <input type="text" id="userid" class="form-control" autocomplete="off" readonly placeholder="ID" />
+          <input type="text" id="proname" class="form-control" autocomplete="off" placeholder="Manopera" />
+          <div class="row">
+            <div class="col">
+              <input type="text" id="seller" class="form-control m-0" autocomplete="off" placeholder="Descriere" />
+            </div>
+            <div class="col">
+              <input type="text" id="price" class="form-control m-0" autocomplete="off" placeholder="Pret" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="d-flex justify-content-center" id="functionalitate">
+        <button class="btn btn-success" id="btn-create" style="display: none!important;" >Creaza Manopera</button>
+        <button class="btn btn-primary" id="btn-read">Vezi manoperele</button>
+        <button class="btn btn-warning" id="btn-update"style="display: none!important;">Update</button>
+        <button class="btn btn-danger" id="btn-delete"style="display: none!important;">Delete All</button>
+      </div>
+
+      <!--  Table -->
+      <div class="d-flex table-data">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Manopera</th>
+              <th scope="col">Descriere</th>
+              <th scope="col">Pret</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!--
+                     <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                    -->    
+          </tbody>
+        </table>
+      </div>
+      <div id="notfound"></div>
+    </div>
+  </main>
+
+<!--
+   Labels 
+  <div class="w-100 btn btn-success insertmsg">Data Inserted Successfully...!</div>
+  <div class="w-100 btn btn-warning updatemsg">Data Updated..! Refresh Database To See Result</div>
+  <div class="w-100 btn btn-danger deletemsg">Data Deleted..!</div>
+-->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+
+  <!-- Include Dexie -->
+  <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+
+  <!-- Custom main file-->
+  <script src="manopere.js" type="module"></script>
+
+  
+  <script>
+       
+      var firebaseConfig = {
+        apiKey: "AIzaSyDVevaJb6Uzysx0X6DGmc5PN3bpI6q-SHs",
+        authDomain: "moga-dental-clinic.firebaseapp.com",
+        databaseURL: "https://moga-dental-clinic.firebaseio.com",
+        projectId: "moga-dental-clinic",
+        storageBucket: "moga-dental-clinic.appspot.com",
+        messagingSenderId: "337039284793",
+        appId: "1:337039284793:web:25a6d55994e6d14add0be8",
+        measurementId: "G-WK0SKHVNV2"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.auth().onAuthStateChanged(function(user) {
+          if(user)
+              if(user.email === "admin@gmail.com")
+              {
+                document.getElementById("btn-create").style.display="block";
+                document.getElementById("btn-update").style.display="block";
+                document.getElementById("btn-delete").style.display="block";
+                document.getElementById("container").style.display="block";
+              }
+            //  console.log(firebase.auth().currentUser.email) ;
+      });
+  //    setTimeout(() => { console.log(firebase.auth().currentUser.email) ;}, 2000);
+    </script>
+    
+    <style>
+        header{
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom:blue solid 3px;
+        background-color: midnightblue;
+    }
+
+    .meniu {
+        background-color: midnightblue;
+        margin: auto;
+        overflow: hidden;
+        color: chartreuse;
+    }
+
+    #logo {
+        font-family: 'Sansita Swashed', cursive;
+        float: left;
+        color:ghostwhite;
+        padding-left: 2.5%;
+    }
+
+    #efect {
+        color:skyblue;
+    }
+
+    .optiuni {
+        padding-top: 18px;
+        float: right;
+        color: green;
+        padding-right: 6%;
+        text-decoration: none;
+        background-color: midnightblue;
+    }
+
+    .optiuni ul li{
+        padding-left: 5px;
+        padding-right: 5px;
+        display: inline;
+        color: whitesmoke;
+        border-bottom: white ridge 1.5px;
+        border-top: white ridge 1.5px;
+        border-left: white ridge 1.5px;
+        border-right: white ridge 1.5px;
+    }
+
+
+    a {
+        color: skyblue;
+        text-decoration: none;
+    }
+
+    a:hover {
+      color: deeppink;
+      font-weight: hold;  
+    }
+    </style>
+    
+    <script>
+           function logout(){
+
+               firebase.auth().signOut();
+               window.location="index.html";
+
+           }
+            function signin() {
+                window.location="./index.html";
+            }
+    </script>
+
+
+</html>

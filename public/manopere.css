@@ -1,0 +1,102 @@
+body{
+    box-sizing: border-box;
+}
+
+header{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom:blue solid 3px;
+    background-color: midnightblue;
+    font-size: 20px;
+}
+
+.meniu {
+    margin: auto;
+    overflow: hidden;
+}
+
+#logo {
+    font-family: 'Sansita Swashed', cursive;
+    float: left;
+    color:ghostwhite;
+    padding-left: 2.5%;
+}
+
+#efect {
+    color:skyblue;
+}
+
+
+.optiuni {
+    padding-top: 18px;
+    float: right;
+    color: green;
+    padding-right: 6%;
+    text-decoration: none;
+}
+
+.optiuni ul li{
+    padding-left: 5px;
+    padding-right: 5px;
+    display: inline;
+    color: whitesmoke;
+    border-bottom: white ridge 1.5px;
+    border-top: white ridge 1.5px;
+    border-left: white ridge 1.5px;
+    border-right: white ridge 1.5px;
+}
+
+a {
+    color: skyblue;
+    text-decoration: none;
+}
+
+a:hover {
+  color: deeppink;
+  font-weight: hold;  
+}
+
+.d-flex input {
+    margin: .9em 0em;
+}
+
+.d-flex button {
+    margin: 1.5em .6em;
+    padding: .5em 2.9em;
+}
+
+.d-flex table {
+    margin: 1em 10em;
+}
+
+table .btnedit {
+    color: green;
+    cursor: pointer;
+}
+
+table .btndelete {
+    color: tomato;
+    cursor: pointer;
+}
+
+/* messages */
+.updatemsg,
+.deletemsg,
+.insertmsg {
+    position: absolute;
+    top: -40px;
+}
+
+.movedown {
+    animation: slideup 3.4s ease;
+}
+
+@keyframes slideup {
+    50% {
+        top: 0
+    }
+
+    100% {
+        top: -40px;
+    }
+}
